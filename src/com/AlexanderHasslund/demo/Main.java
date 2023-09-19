@@ -1,5 +1,6 @@
 package com.AlexanderHasslund.demo;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class Main {
@@ -7,6 +8,7 @@ public class Main {
      Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
+        MenuChoiches menu = new MenuChoiches();
 
         uppgift0();
 
@@ -27,18 +29,33 @@ public class Main {
 
         }
 
+        System.out.println("Tryck på valfri knapp för att försätta...");
+        //uppgift 5 tough nut
         boolean isStop = true;
-        //uppgift 3
-        do {
-            System.out.println("denna loop tar aldrig slut!! så länge isStop is = true! Stanna loopen? skriv Stop!");
-            String aldrigSlut = scannerMain();
+        do{
 
+            menu.menuChoices();
+            //System.out.println("välj ditt val! ");
+            String input = scannerMain();
+          //  if (input.equals("1")) {
+          //      int convertString = Integer.parseInt(input);
+          //  }
 
-            if (aldrigSlut.toLowerCase().equals("stop")) {
-                isStop = false;
+            switch (input.toLowerCase()) {
+
+                case "1":
+                    System.out.println("Throwing");
+
+                    break;
+                case "stop": isStop = false;
+                    break;
+                default:
+                    System.out.println("wrong input");
             }
 
-        } while (isStop);
+        } while(isStop);
+
+
 
 
 
@@ -75,3 +92,17 @@ public class Main {
     }
 
 }
+/*
+    boolean isStop = true;
+   //uppgift 3
+        do {
+            System.out.println("denna loop tar aldrig slut!! så länge isStop is = true! Stanna loopen? skriv Stop!");
+            String aldrigSlut = scannerMain();
+
+
+            if (aldrigSlut.toLowerCase().equals("stop")) {
+                isStop = false;
+            }
+
+        } while (isStop);
+ */
