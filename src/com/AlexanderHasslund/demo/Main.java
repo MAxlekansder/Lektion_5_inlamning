@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-     Scanner scan = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
         MenuChoiches menu = new MenuChoiches();
@@ -25,37 +25,63 @@ public class Main {
         System.out.print("Skriv in ett heltal för antalet loops du vill göra!: ");
         int result = scannerNumber();
         for (int i = 0; i < result; i++) {
-            System.out.println("loop... "+i);
+            System.out.println("loop... " + i);
 
         }
 
-        System.out.println("Tryck på valfri knapp för att försätta...");
-        //uppgift 5 tough nut
         boolean isStop = true;
-        do{
+       //uppgift 3 / 4
+            do {
+                System.out.println("denna loop tar aldrig slut!! så länge isStop is = true! Stanna loopen? skriv Stop!");
+                String aldrigSlut = scannerMain();
 
+
+                if (aldrigSlut.toLowerCase().equals("stop")) {
+                    isStop = false;
+                }
+
+            } while (isStop);
+
+
+
+        //uppgift 5 tough nut
+        boolean isStopUppgift = true;
+        do {
             menu.menuChoices();
-            //System.out.println("välj ditt val! ");
             String input = scannerMain();
-          //  if (input.equals("1")) {
-          //      int convertString = Integer.parseInt(input);
-          //  }
 
             switch (input.toLowerCase()) {
-
                 case "1":
                     System.out.println("Throwing");
-
                     break;
-                case "stop": isStop = false;
+                case "stop":
+                    isStopUppgift = false;
                     break;
                 default:
                     System.out.println("wrong input");
             }
 
-        } while(isStop);
+        } while (isStopUppgift);
 
 
+        boolean isTrue = true;
+        //uppgift 6
+        System.out.println("---------------------\n");
+        do {
+            System.out.println("Testa att skriva en sträng, inputen tar heltal!");
+            Scanner intScan = new Scanner(System.in);
+            //scannerUppgift6();
+            try {
+
+                int intInput = intScan.nextInt();
+                isTrue = false;
+
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Du behöver skriva in ett heltal för att komma vidare!");
+            }
+
+
+        } while(isTrue);
 
 
 
@@ -65,7 +91,7 @@ public class Main {
         Main myScanAttribute = new Main();
 
         System.out.println("Input a integer");
-        while(!myScanAttribute.scan.hasNextInt()) {
+        while (!myScanAttribute.scan.hasNextInt()) {
 
             System.out.println("that's not a number, try again!");
             myScanAttribute.scan.nextLine();
@@ -92,17 +118,3 @@ public class Main {
     }
 
 }
-/*
-    boolean isStop = true;
-   //uppgift 3
-        do {
-            System.out.println("denna loop tar aldrig slut!! så länge isStop is = true! Stanna loopen? skriv Stop!");
-            String aldrigSlut = scannerMain();
-
-
-            if (aldrigSlut.toLowerCase().equals("stop")) {
-                isStop = false;
-            }
-
-        } while (isStop);
- */
